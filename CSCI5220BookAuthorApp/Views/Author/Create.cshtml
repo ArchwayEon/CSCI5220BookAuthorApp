@@ -2,16 +2,15 @@
 
 @{
     Book? book = (Book?)ViewData["Book"];
-
+    if (book == null)
+    {
+        return;
+    }
     ViewData["Title"] = $"Creating author for {book.Title}";
 }
 
 <h1>@ViewData["Title"]</h1>
-@if (book == null)
-{
-    <p>There is no book!</p>
-    return;
-}
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -36,9 +35,9 @@
 </div>
 
 <div>
-   <a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id">
-      Back to Book Details
-   </a>
+    <a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id">
+        Back to Book Details
+    </a>
 </div>
 
 @section Scripts {

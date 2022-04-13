@@ -1,7 +1,7 @@
 ﻿@model EditAuthorVM
 
 @{
-   ViewData["Title"] = $"Editing author of {Model.Book.Title}";
+   ViewData["Title"] = $"Editing author of {Model.Book!.Title}";
 }
 
 <h1>@ViewData["Title"]</h1>
